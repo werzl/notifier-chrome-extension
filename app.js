@@ -4,7 +4,7 @@ async function getData() {
     const url = "https://api.github.com/repos/werzl/notifier-chrome-extension/actions/runs";
 
     try {
-      const response = await fetch(url, { headers: { "Authorization": "Bearer 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" }});
+      const response = await fetch(url, { headers: { "Authorization": "Bearer " }});
 
       if (!response.ok) {
         throw new Error(`Response status: ${response.status}`);
