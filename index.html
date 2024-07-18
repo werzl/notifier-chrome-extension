@@ -1,11 +1,16 @@
 <html>
+    <head>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flat-ui/2.3.0/css/flat-ui.min.css" rel="stylesheet"/>
+    </head>
     <body>
 		<div style="width: 500px;">
 			<h1>Chrome Notifier App</h1>
 			
 			<button id="retrieveWorkflowsButton" onclick="retrieveWorkflows()">Retrieve Workflows</button>
 			
-			<div id="workflows"></div>
+			<div id="workflows">
+                <table id="workflows-table"></table>
+            </div>
 			
 			<script src="app.js"></script>
 		</div>
