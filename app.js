@@ -1,3 +1,5 @@
+document.getElementById("retrieveWorkflowsButton").addEventListener("click", retrieveWorkflows);
+
 async function getData() {
     const url = "https://api.github.com/repos/werzl/notifier-chrome-extension/actions/runs";
 
@@ -17,11 +19,13 @@ async function getData() {
     }
   }
 
-function retrieveWorkflows() {
-    console.log("test");
+async function retrieveWorkflows() {
+    console.log("retrieving workflows");
     
-    // let workflows = getData();
+    let workflows = await getData();
 
-    // document.getElementById("workflows").innerText = workflows;
+    document.getElementById("workflows").innerText = JSON.stringify(workflows);
+
+    console.log("retrieved workflows");
 }
 
