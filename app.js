@@ -1,6 +1,10 @@
+// Register events
 document
     .getElementById("retrieveWorkflowsButton")
-    .addEventListener("click", () => pollForPipelineUpdate(''));
+    .addEventListener("click", () => pollForPipelineUpdate('')); // place PAT token here
+
+
+
 
 async function getData(url, personalAccessToken) {
     try {
@@ -55,7 +59,7 @@ async function retrieveRepos(personalAccessToken) {
     document.getElementById("workflows-table").innerHTML = "";
     
     await repos.forEach(async (repo) => {
-        workflows = await retrieveWorkflows(repo.full_name);
+        workflows = await retrieveWorkflows(repo.full_name, personalAccessToken);
 
         workflows.forEach((workflow) => {
             document.getElementById("workflows-table").innerHTML += '<tr><td>' + workflow.name + '</td><td>' + workflow.status + '</td></tr>';
