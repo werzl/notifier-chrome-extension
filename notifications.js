@@ -1,17 +1,29 @@
+const icons = Object.freeze({
+    inProgress: "assets/inProgress.png",
+    success: "assets/success.png",
+    failed: "assets/failed.png"
+});
+
 const notificationCallback = (notificationId) => {
-    console.log(`callback triggered with notification id: ${notificationId}`);
-    console.info(chrome.runtime.lastError);
+    if (chrome.runtime.lastError) {
+        console.error(`Notification with ID: ${notificationId} errored`);
+        console.error(chrome.runtime.lastError);
+    }
 };
 
-function sendNotification(title, message) {
+async function sendNotification(title, message, iconUrl) {
     var opt = {
         type: "basic",
         title: title,
         message: message,
-        iconUrl: "icon.png",
+        iconUrl: iconUrl,
     };
 
     var notificationId = Math.random();
 
-    chrome.notifications.create(notificationId.toString(), opt, notificationCallback);
+    await chrome.notifications.create(
+        notificationId.toString(),
+        opt,
+        notificationCallback
+    );
 }

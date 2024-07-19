@@ -10,4 +10,4 @@ Generate PAT token with the following scopes:
 - project
 - notification
 
-Then add the string to line 3 in `app.js`.
+Then add the string to line 4 in `index.js`.
