@@ -1,5 +1,5 @@
 # notifier-chrome-extension
-Notify when pipelines / pull requests complete on popular cloud platforms.
+Polls for GitHub pipeline state changes and sends a chrome desktop notification with a status icon and details of the pipeline. 
 
 
 # Setup
